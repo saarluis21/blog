@@ -11,30 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@master');
 
-Route::get('/login', function () {
-    return 'Login usuario';
-});
+//Route::get('/greetings/{usuari}', 'NouController@greetings');
+
+Route::get('/login', "LoginController@login");
 
 Route::get('/logout', function () {
     return 'Logout usuario';
 });
 
-Route::get('/catalog', function () {
-    return 'Listado películas';
+Route::get('/catalog', "CatalogController@index");
+
+Route::get('/catalog/show/{id}',['id' => "CatalogController@show"]);
+
+Route::get('/catalog/create', "CatalogController@create");
+
+Route::get('/catalog/edit/{id}',['id' => "CatalogController@edit"]);
+
+Route::get('/books', 'BookController@llistar');
+
+Route::get('/books/create',function() {
+
+return view('books.createBooks');
+
 });
 
-Route::get('/catalog/show/{id}', function ($id) {
-    return 'Vista detalle película'.$id;
-});
-
-Route::get('/catalog/create', function () {
-    return 'Añadir película';
-});
-
-Route::get('/catalog/edit/{id}', function ($id) {
-    return 'Modificar película'.$id;
-});
+Route::post('/books/create','BookController@create');
