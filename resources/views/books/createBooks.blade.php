@@ -12,9 +12,9 @@
 
           {{ csrf_field() }}
           Titol del llibre:
-          <input type="text" name="title" /></br>
+          <input type="text" name="title" value="{{old('title')}}" /></br>
           ISBN del llibre:
-          <input type="number" name="ISBN"/></br>
+          <input type="number" name="ISBN" value="{{old('ISBN')}}"/></br>
           <input type="submit" value="Crear Llibre"/>
 
         </form>

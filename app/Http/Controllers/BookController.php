@@ -16,14 +16,14 @@ class BookController extends Controller
 
     public function create(Request $request) {
 
-      $request->validate([
+      $data = $request->validate([
 
         'title' => 'required|min:3|max:50',
         'ISBN' => 'required|digits:13'
 
       ]);
 
-      dd($request->title,$request->ISBN);
+      dd($data);
 
 
 
